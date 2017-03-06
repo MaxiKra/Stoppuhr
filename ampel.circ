@@ -7,6 +7,14 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="facing" val="north"/>
       <a name="inputs" val="2"/>
     </tool>
+    <tool name="NAND Gate">
+      <a name="facing" val="north"/>
+      <a name="inputs" val="2"/>
+    </tool>
+    <tool name="NOR Gate">
+      <a name="facing" val="north"/>
+      <a name="inputs" val="2"/>
+    </tool>
   </lib>
   <lib desc="#Plexers" name="2"/>
   <lib desc="#Arithmetic" name="3"/>
@@ -63,7 +71,10 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="facing" val="north"/>
       <a name="size" val="20"/>
     </tool>
-    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="AND Gate">
+      <a name="facing" val="north"/>
+      <a name="inputs" val="2"/>
+    </tool>
     <tool lib="1" name="OR Gate"/>
   </toolbar>
   <circuit name="main">
@@ -126,12 +137,13 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(420,320)" to="(480,320)"/>
     <wire from="(180,240)" to="(240,240)"/>
     <wire from="(240,70)" to="(620,70)"/>
+    <wire from="(70,300)" to="(70,310)"/>
     <wire from="(240,70)" to="(240,220)"/>
+    <wire from="(70,280)" to="(70,300)"/>
     <wire from="(590,310)" to="(590,390)"/>
     <wire from="(420,170)" to="(520,170)"/>
     <wire from="(420,290)" to="(520,290)"/>
     <wire from="(240,220)" to="(280,220)"/>
-    <wire from="(70,280)" to="(70,310)"/>
     <wire from="(90,360)" to="(90,390)"/>
     <wire from="(690,180)" to="(840,180)"/>
     <wire from="(690,120)" to="(840,120)"/>
@@ -155,23 +167,17 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(380,150)" to="(380,210)"/>
     <wire from="(380,210)" to="(380,270)"/>
     <wire from="(50,360)" to="(50,420)"/>
-    <comp lib="0" loc="(400,210)" name="Splitter">
+    <comp lib="1" loc="(520,260)" name="NOT Gate">
+      <a name="size" val="20"/>
+    </comp>
+    <comp lib="0" loc="(400,270)" name="Splitter">
       <a name="fanout" val="4"/>
       <a name="incoming" val="4"/>
     </comp>
-    <comp lib="1" loc="(570,310)" name="AND Gate">
-      <a name="inputs" val="4"/>
+    <comp lib="1" loc="(520,180)" name="NOT Gate">
+      <a name="size" val="20"/>
     </comp>
-    <comp lib="0" loc="(270,160)" name="Constant"/>
-    <comp lib="5" loc="(840,240)" name="LED">
-      <a name="color" val="#00f016"/>
-    </comp>
-    <comp lib="1" loc="(570,250)" name="AND Gate">
-      <a name="inputs" val="4"/>
-    </comp>
-    <comp lib="4" loc="(690,180)" name="S-R Flip-Flop">
-      <a name="trigger" val="high"/>
-    </comp>
+    <comp lib="5" loc="(840,120)" name="LED"/>
     <comp lib="0" loc="(400,330)" name="Splitter">
       <a name="fanout" val="4"/>
       <a name="incoming" val="4"/>
@@ -179,73 +185,79 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="1" loc="(570,130)" name="AND Gate">
       <a name="inputs" val="4"/>
     </comp>
-    <comp lib="1" loc="(520,240)" name="NOT Gate">
-      <a name="size" val="20"/>
+    <comp lib="4" loc="(690,240)" name="S-R Flip-Flop">
+      <a name="trigger" val="high"/>
     </comp>
-    <comp lib="1" loc="(520,180)" name="NOT Gate">
-      <a name="size" val="20"/>
-    </comp>
-    <comp lib="1" loc="(520,120)" name="NOT Gate">
-      <a name="size" val="20"/>
-    </comp>
-    <comp lib="1" loc="(570,190)" name="AND Gate">
+    <comp lib="0" loc="(270,160)" name="Constant"/>
+    <comp lib="1" loc="(570,250)" name="AND Gate">
       <a name="inputs" val="4"/>
     </comp>
-    <comp lib="1" loc="(70,310)" name="OR Gate">
-      <a name="facing" val="north"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(520,210)" name="NOT Gate">
+    <comp lib="1" loc="(520,240)" name="NOT Gate">
       <a name="size" val="20"/>
     </comp>
     <comp lib="5" loc="(50,420)" name="Button">
       <a name="facing" val="north"/>
     </comp>
-    <comp lib="1" loc="(520,260)" name="NOT Gate">
+    <comp lib="1" loc="(520,230)" name="NOT Gate">
       <a name="size" val="20"/>
+    </comp>
+    <comp lib="5" loc="(840,180)" name="LED">
+      <a name="color" val="#f0c300"/>
+    </comp>
+    <comp lib="1" loc="(570,190)" name="AND Gate">
+      <a name="inputs" val="4"/>
+    </comp>
+    <comp lib="1" loc="(520,210)" name="NOT Gate">
+      <a name="size" val="20"/>
+    </comp>
+    <comp lib="0" loc="(400,210)" name="Splitter">
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
     </comp>
     <comp lib="4" loc="(90,260)" name="Counter">
       <a name="width" val="1"/>
       <a name="max" val="0x1"/>
     </comp>
-    <comp lib="5" loc="(840,120)" name="LED"/>
-    <comp lib="0" loc="(90,220)" name="Clock"/>
+    <comp lib="0" loc="(60,270)" name="Constant"/>
+    <comp lib="1" loc="(70,300)" name="NOR Gate">
+      <a name="facing" val="north"/>
+      <a name="inputs" val="2"/>
+    </comp>
     <comp lib="1" loc="(180,240)" name="AND Gate">
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="1" loc="(520,230)" name="NOT Gate">
+    <comp lib="1" loc="(520,120)" name="NOT Gate">
       <a name="size" val="20"/>
     </comp>
+    <comp lib="4" loc="(690,120)" name="S-R Flip-Flop">
+      <a name="trigger" val="high"/>
+    </comp>
+    <comp lib="1" loc="(520,110)" name="NOT Gate">
+      <a name="size" val="20"/>
+    </comp>
+    <comp lib="4" loc="(690,180)" name="S-R Flip-Flop">
+      <a name="trigger" val="high"/>
+    </comp>
+    <comp lib="0" loc="(90,220)" name="Clock"/>
     <comp lib="1" loc="(520,140)" name="NOT Gate">
       <a name="size" val="20"/>
     </comp>
-    <comp lib="4" loc="(690,240)" name="S-R Flip-Flop">
-      <a name="trigger" val="high"/>
-    </comp>
-    <comp lib="4" loc="(300,150)" name="Counter">
-      <a name="width" val="4"/>
-      <a name="max" val="0xf"/>
+    <comp lib="1" loc="(520,150)" name="NOT Gate">
+      <a name="size" val="20"/>
     </comp>
     <comp lib="0" loc="(400,150)" name="Splitter">
       <a name="fanout" val="4"/>
       <a name="incoming" val="4"/>
     </comp>
-    <comp lib="4" loc="(690,120)" name="S-R Flip-Flop">
-      <a name="trigger" val="high"/>
+    <comp lib="1" loc="(570,310)" name="AND Gate">
+      <a name="inputs" val="4"/>
     </comp>
-    <comp lib="1" loc="(520,150)" name="NOT Gate">
-      <a name="size" val="20"/>
+    <comp lib="5" loc="(840,240)" name="LED">
+      <a name="color" val="#00f016"/>
     </comp>
-    <comp lib="0" loc="(60,270)" name="Constant"/>
-    <comp lib="5" loc="(840,180)" name="LED">
-      <a name="color" val="#f0c300"/>
-    </comp>
-    <comp lib="1" loc="(520,110)" name="NOT Gate">
-      <a name="size" val="20"/>
-    </comp>
-    <comp lib="0" loc="(400,270)" name="Splitter">
-      <a name="fanout" val="4"/>
-      <a name="incoming" val="4"/>
+    <comp lib="4" loc="(300,150)" name="Counter">
+      <a name="width" val="4"/>
+      <a name="max" val="0xf"/>
     </comp>
   </circuit>
 </project>
